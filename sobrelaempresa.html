@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de tu Empresa - Servicios e Historia</title>
+    <style>
+/* ---------------------------------- */
+/* 1. Base y Tipografía */
+/* ---------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Fondo muy claro */
+    color: #333;
+}
+
+/* **Mejora Responsiva 1: Contenedor** */
+.container {
+    /* En móviles, usa un padding para no pegar el contenido al borde */
+    width: 90%; /* Usa más ancho en móviles */
+    max-width: 1200px; /* Ancho máximo en Desktop */
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0; /* Menos padding vertical en móviles */
+}
+
+h1, h2, h3 {
+    color: #007bff; /* Color principal azul */
+}
+
+/* ---------------------------------- */
+/* 2. Encabezado (Header) */
+/* ---------------------------------- */
+header {
+    background: #007bff;
+    color: #ffffff;
+    padding: 20px 0; /* Padding vertical más uniforme */
+    min-height: 70px;
+    border-bottom: #77aaff 3px solid;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/* **Mejora Responsiva 2: Navegación** */
+header ul {
+    padding: 0;
+    list-style: none;
+    display: flex; /* Mantiene la lista en línea */
+    justify-content: center;
+    margin-top: 10px;
+    /* Permite que la lista se envuelva si no cabe en una línea (útil en móviles) */
+    flex-wrap: wrap; 
+}
+
+header li {
+    padding: 5px 15px; /* Más padding para facilitar el toque en móviles */
+}
+
+/* ---------------------------------- */
+/* 3. Secciones Generales */
+/* ---------------------------------- */
+section {
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Párrafo introductorio destacado */
+.intro {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.historia-parrafo {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid #007bff; /* Destacar bloques de historia */
+    background: #ffffff;
+}
+
+/* ---------------------------------- */
+/* 4. Estilos de Servicios */
+/* ---------------------------------- */
+/* **Mejora Responsiva 3: Grid de Servicios** */
+.servicios-grid {
+    /* El uso de auto-fit y minmax ya es excelente para responsividad */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.servicio-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.servicio-card h3 {
+    color: #0056b3;
+    margin-top: 0;
+}
+
+/* ---------------------------------- */
+/* 5. Pie de Página (Footer) */
+/* ---------------------------------- */
+footer {
+    background: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+#contacto {
+    margin-bottom: 15px;
+}
+
+/* ================================== */
+/* 6. Media Queries (Ajustes finos) */
+/* ================================== */
+
+/* Desktop y Tabletas (Anchos mayores a 768px) */
+@media (min-width: 768px) {
+    .container {
+        width: 80%; /* Usa más ancho en pantallas grandes */
+    }
+}
+
+/* Móviles (Anchos menores a 600px) */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header li {
+        width: 100%; /* Cada enlace de navegación ocupa su propia línea */
+        padding: 5px 0;
+    }
+    
+    /* Aseguramos que la cuadrícula de servicios sea de una columna simple en móviles */
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Arreglando un error de cierre en tu código original */
+/* La estructura del div servicios-grid estaba incompleta, la he corregido */
+</style>    
+</head>
+<body>
+    <header>
+        <h1>Nombre de tu Empresa</h1>
+        <nav>
+            <ul>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="historia" class="container">
+            <h2>📜 Nuestra Historia</h2>
+            <p class="intro">
+                "Nombre de tu Empresa" fue fundada en **[Año de Fundación]** con una visión clara: **[Tu Misión Principal, ej: 'transformar la gestión de proyectos para pequeños negocios.']**
+            </p>
+            <div class="historia-parrafo">
+                <h3>Los Inicios</h3>
+                <p>
+                    Comenzamos en un pequeño **[Lugar, ej: 'garaje en la ciudad de [Ciudad]']** con solo dos empleados. Nuestros primeros años estuvieron marcados por **[Menciona un desafío/hito, ej: 'el desarrollo de nuestro producto pionero, la Plataforma X.']** Este período sentó las bases de nuestra cultura: **innovación y dedicación al cliente.**
+                </p>
+            </div>
+            <div class="historia-parrafo">
+                <h3>Crecimiento y Expansión</h3>
+                <p>
+                    Para **[Año de Expansión]**, logramos **[Menciona un logro importante, ej: 'alcanzar los 1000 clientes satisfechos y expandirnos a tres nuevos mercados.']** Hoy, somos líderes en **[Tu Nicho]**, manteniendo siempre el compromiso con la calidad y la excelencia que nos define.
+                </p>
+            </div>
+        </section>
+
+        <section id="servicios" class="container">
+            <h2>💡 Nuestros Servicios</h2>
+            <p class="intro">
+                Ofrecemos soluciones integrales diseñadas para **[Beneficio principal que ofreces, ej: 'optimizar tus operaciones y asegurar tu crecimiento en el mercado digital.']**
+            </p>
+            
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <h3>Grabado Láser</h3>
+                    <p>Crea diseños detallados y permanentes en una amplia gama de materiales, ideal para personalización y merchandising de alta calidad.</p>
+                </div>
+                <div class="servicio-card">
+                    <h3>Sublimación</h3>
+                    <p>Proceso de transferencia de imágenes a tejidos sintéticos o artículos con polímero, perfecto para colores vivos y diseños fotográficos.</p>
+                </div>
+                <div class="servicio-card">
+                    <h3>DTF (Direct to Film)</h3>
+                    <p>Impresión de alta resolución transferida a casi cualquier tipo de tejido. Ofrece colores vibrantes y gran durabilidad en prendas oscuras y claras.</p>
+                </div>
+                <div class="servicio-card">
+                    <h3>Impresión Digital</h3>
+                    <p>Soluciones rápidas y de bajo volumen para folletos, tarjetas de presentación, carteles y otros materiales promocionales.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p id="contacto">Contacto: <a href="mailto:info@tudominio.com">info@tudominio.com</a> | Tel: [Tu Teléfono]</p>
+            <p>&copy; 2025 Nombre de tu Empresa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

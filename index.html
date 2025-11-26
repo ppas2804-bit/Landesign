@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>landesign centro creativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+   <style>
+    /* ======================================
+    === 1. VARIABLES CSS (Root)          ===
+    ======================================
+    */
+    :root {
+        /* Colores primarios */
+        --primary-blue: #007bff;
+        --dark-gray: #333;
+        --light-gray: #f8f8f8;
+        --medium-gray: #6c757d;
+        --border-color: #dee2e6;
+        --text-color: #212529;
+        /* Fuente principal */
+        --font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* ======================================
+    === 2. ESTILOS BASE (Body, Links)    ===
+    ======================================
+    */
+    body {
+        font-family: var(--font-family);
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+        background-color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--dark-gray);
+    }
+
+    a:hover {
+        color: var(--primary-blue);
+    }
+    /* === FIN ESTILOS BASE === */
+
+    /* ======================================
+    === 3. BARRA SUPERIOR (Top Bar)      ===
+    ======================================
+    */
+    .top-bar {
+        background-color: var(--dark-gray);
+        color: white;
+        padding: 8px 5%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+    .top-bar .language-selector {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .top-bar .language-selector i {
+        margin-right: 5px;
+    }
+    /* === FIN BARRA SUPERIOR === */
+
+    /* ======================================
+    === 4. ENCABEZADO PRINCIPAL          ===
+    ===    (Logo, Búsqueda, Iconos)      ===
+    ======================================
+    */
+    .main-header {
+        display: flex;
+        align-items: center;
+        padding: 15px 5%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .main-header .logo {
+        flex-shrink: 0;
+        margin-right: 30px;
+    }
+
+    .main-header .logo img {
+        /* *** CORRECCIÓN: LOGO MÁS GRANDE *** */
+        height: 40px; 
+    }
+
+    .main-header .search-bar {
+        flex-grow: 1;
+        display: flex;
+        max-width: 500px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .main-header .search-bar input {
+        border: none;
+        padding: 10px 15px;
+        flex-grow: 1;
+        font-size: 1rem;
+        outline: none;
+    }
+
+    .main-header .search-bar button {
+        background-color: var(--light-gray);
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--dark-gray);
+        transition: background-color 0.2s;
+    }
+
+    .main-header .search-bar button:hover {
+        background-color: #e2e6ea;
+    }
+
+    .main-header .header-icons {
+        display: flex;
+        margin-left: auto;
+        gap: 25px;
+    }
+
+    .main-header .header-icons div {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: var(--medium-gray);
+        transition: color 0.2s;
+    }
+
+    .main-header .header-icons div:hover {
+        color: var(--primary-blue);
+    }
+
+    .main-header .header-icons i {
+        font-size: 1.2rem;
+        margin-right: 8px;
+    }
+    /* === FIN ENCABEZADO PRINCIPAL === */
+
+    /* ======================================
+    === 5. NAVEGACIÓN PRINCIPAL (NAV)    ===
+    ======================================
+    */
+    .main-nav {
+        background-color: white;
+        padding: 15px 5%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .main-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 10px 15px;
+        font-weight: 600;
+        color: var(--dark-gray);
+        transition: color 0.2s, border-bottom 0.2s;
+    }
+
+    .main-nav ul li a:hover {
+        color: var(--primary-blue);
+        border-bottom: 2px solid var(--primary-blue);
+    }
+    /* === FIN NAVEGACIÓN PRINCIPAL === */
+
+    /* ======================================
+    === 7. MIGA DE PAN (Breadcrumbs)   ===
+    ======================================
+    */
+    .breadcrumbs {
+        padding: 20px 5%;
+        font-size: 0.9rem;
+        color: var(--medium-gray);
+    }
+
+    .breadcrumbs a {
+        color: var(--medium-gray);
+        text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumbs span {
+        margin: 0 5px;
+    }
+
+    .breadcrumbs strong {
+        font-weight: 600;
+        color: var(--dark-gray);
+    }
+    /* === FIN MIGA DE PAN === */
+
+    /* ======================================
+    === 8. ENCABEZADO LISTA PRODUCTOS    ===
+    ===    (Título y Ordenar por)        ===
+    ======================================
+    */
+    .product-list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 20px 5%;
+    }
+
+    .product-list-header h1 {
+        font-size: 2.2rem;
+        margin: 0;
+    }
+
+    .product-list-header .results-count {
+        color: var(--medium-gray);
+        font-size: 0.95rem;
+    }
+
+    .sort-by {
+        display: flex;
+        align-items: center;
+    }
+
+    .sort-by label {
+        margin-right: 10px;
+        font-size: 0.95rem;
+        color: var(--medium-gray);
+    }
+
+    .sort-by select {
+        padding: 8px 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 0.9rem;
+        cursor: pointer;
+        outline: none;
+    }
+    /* === FIN ENCABEZADO LISTA PRODUCTOS === */
+
+    /* ======================================
+    === 9. CONTENEDOR PRINCIPAL PRODUCTOS ===
+    ===    (Sidebar y Grid)              ===
+    ======================================
+    */
+    .product-page-content {
+        display: flex;
+        padding: 0 5% 50px 5%;
+    }
+
+    /* Estilos para la barra lateral de filtros */
+    .sidebar-filters {
+        flex: 0 0 250px;
+        margin-right: 30px;
+        padding-right: 20px;
+        border-right: 1px solid var(--border-color);
+        text-align: left;
+    }
+
+    .sidebar-filters h3 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+
+    .filter-group {
+        margin-bottom: 25px;
+    }
+
+    .filter-group h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .filter-group ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .filter-group ul li {
+        margin-bottom: 10px;
+    }
+
+    .filter-group label {
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+        cursor: pointer;
+    }
+
+    .filter-group input[type="checkbox"] {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Estilos para la cuadrícula de productos */
+    .product-grid {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    /* Estilos para la tarjeta de producto individual */
+    .product-card {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        background-color: #fff;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .product-card:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+    }
+
+    .product-card img {
+        max-width: 100%;
+        height: 250px;
+        object-fit: contain;
+        background-color: var(--light-gray);
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px;
+    }
+
+    .product-info {
+        padding: 15px;
+    }
+
+    .product-info h4 {
+        font-size: 1.1rem;
+        margin: 0 0 10px 0;
+        color: var(--dark-gray);
+    }
+
+    .product-info .price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: 15px;
+    }
+    
+    /* Clase oculta para almacenar el precio numérico (usado por JS) */
+    .product-info .numeric-price {
+        display: none;
+    }
+
+
+    .product-card .add-to-cart {
+        background-color: var(--primary-blue);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        display: inline-block;
+        transition: background-color 0.2s;
+    }
+
+    .product-card .add-to-cart:hover {
+        background-color: #0056b3;
+    }
+    /* === FIN CONTENEDOR PRINCIPAL PRODUCTOS === */
+
+
+    /* ======================================
+    === 10. PIE DE PÁGINA (Footer)        ===
+    ======================================
+    */
+    .main-footer {
+        background-color: var(--dark-gray);
+        color: white;
+        padding: 40px 5%;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .footer-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+    .footer-nav h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .footer-nav ul li a {
+        color: #ccc;
+        padding: 5px 0;
+        display: block;
+    }
+
+    .footer-nav ul li a:hover {
+        color: var(--primary-blue);
+        text-decoration: underline;
+    }
+
+    .social-media {
+        margin-top: 30px;
+    }
+
+    .social-media a {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 10px;
+    }
+
+    .social-media a:hover {
+        color: var(--primary-blue);
+    }
+
+    .legal-info {
+        margin-top: 40px;
+        border-top: 1px solid #444;
+        padding-top: 20px;
+        font-size: 0.8rem;
+        color: #aaa;
+    }
+
+    .legal-info a {
+        color: #aaa;
+        margin: 0 10px;
+    }
+    .legal-info a:hover {
+        color: var(--primary-blue);
+    }
+    /* === FIN PIE DE PÁGINA === */
+
+    /* RESPONSIVIDAD (Media Queries)*/
+
+/* TABLETAS y Dispositivos Medianos Max-width: 992px */
+@media (max-width: 992px) {
+    
+    /* Adaptar el encabezado: Ocultar iconos y reducir barra de búsqueda */
+    .main-header .header-icons {
+        gap: 15px; /* Reduce espacio entre iconos */
+        margin-left: 15px;
+    }
+
+    .main-header .header-icons div {
+        /* Ocultar texto para ahorrar espacio, dejando solo el icono */
+        font-size: 0; 
+    }
+    .main-header .header-icons i {
+        margin-right: 0; /* Elimina margen del icono */
+        font-size: 1.5rem; /* Hace el icono más grande para que sea visible */
+    }
+
+    /* Reducir el tamaño de la navegación */
+    .main-nav ul {
+        justify-content: space-around;
+    }
+    .main-nav ul li a {
+        padding: 10px 10px;
+        font-size: 0.9rem;
+    }
+    
+    /* Mover el orden de clasificación (Ordenar por) al lado del título */
+    .product-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .sort-by {
+        align-self: flex-end; /* Lo alinea a la derecha si es necesario */
+    }
+
+    /* En el grid, forzar una vista de dos columnas mínimo */
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+}
+
+/*
+    TELÉFONOS y Dispositivos Pequeños Max-width: 768px */
+@media (max-width: 768px) {
+    
+    /* 1. Encabezado (Main Header) */
+    .main-header {
+        flex-wrap: wrap; /* Permite que los elementos salten de línea */
+        justify-content: space-between;
+        padding: 10px 5%; /* Usamos 5% en lugar de --padding-sides, ya que no se definió */
+    }
+    
+    .main-header .logo {
+        margin-right: 15px;
+        margin-bottom: 10px; /* Espacio para el salto de línea */
+        width: 100%; /* El logo ocupa su propia línea */
+        text-align: center;
+    }
+
+    .main-header .logo img {
+        height: 35px; /* Un poco más grande para móvil */
+    }
+    
+    /* Eliminamos el .search-bar ya que no estaba en el HTML original */
+    /* .main-header .search-bar { ... } */
+    
+    .main-header .header-icons {
+        order: 2; /* Los iconos se quedan en su lugar */
+        margin-left: 0;
+        gap: 20px;
+    }
+    
+    /* 2. Navegación (Main Nav) */
+    .main-nav {
+        padding: 10px 5%;
+    }
+    .main-nav ul {
+        flex-wrap: wrap; /* Permite que los enlaces salten de línea */
+        justify-content: space-around;
+    }
+    .main-nav ul li {
+        width: 45%; /* Cada enlace ocupa casi la mitad del ancho */
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .main-nav ul li a {
+        padding: 8px 5px;
+        font-size: 0.85rem;
+    }
+    
+    /* 3. Contenido Principal (Sidebar y Grid) */
+    .product-page-content {
+        flex-direction: column; /* Apila la barra lateral y la cuadrícula */
+        padding-top: 0;
+    }
+    
+    /* Barra Lateral de Filtros (Sidebar) */
+    .sidebar-filters {
+        flex: auto; /* Desactiva el ancho fijo */
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color); /* Agrega una línea de separación abajo */
+        padding-bottom: 20px;
+    }
+    .sidebar-filters h3 {
+        text-align: center;
+    }
+    
+    /* Cuadrícula de Productos (Grid) */
+    .product-grid {
+        grid-template-columns: 1fr; /* Una sola columna para teléfonos */
+        gap: 15px;
+        padding-top: 20px;
+    }
+
+    /* Las tarjetas de producto serán más grandes */
+    .product-card img {
+        height: auto;
+    }
+
+    /* Pie de Página (Footer) */
+    .footer-nav {
+        flex-direction: column; 
+        gap: 20px;
+    }
+    .footer-nav ul {
+        text-align: center; 
+    }
+}
+
+/* --- ESTILOS PARA EL ICONO DEL CARRITO CON CONTADOR --- */
+
+.main-header .header-icons .carrito-icon-container {
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem; 
+    color: var(--medium-gray);
+    transition: color 0.2s;
+    position: relative; 
+    margin-left: 25px; 
+}
+
+.main-header .header-icons .carrito-icon-container:hover {
+    color: var(--primary-blue);
+}
+
+.main-header .header-icons .carrito-icon-container a {
+    color: inherit; 
+    display: flex; /* Para que el icono y contador se alineen si son hermanos directos del <a> */
+    align-items: center;
+}
+
+.main-header .header-icons .carrito-icon-container i {
+    font-size: 1.6rem; 
+    margin-right: 0; 
+}
+
+.carrito-contador {
+    background-color: #dc3545; 
+    color: white;
+    border-radius: 50%; 
+    padding: 2px 7px; 
+    font-size: 0.75rem; 
+    font-weight: bold;
+    position: absolute; 
+    top: -8px; 
+    right: -10px; 
+    min-width: 20px; 
+    text-align: center;
+    line-height: 1.2; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* --- RESPONSIVIDAD (Ajustes para móvil/tablet) --- */
+
+/* Cuando los iconos ocultan el texto (en @media max-width: 992px y 768px) */
+@media (max-width: 992px) {
+    .main-header .header-icons .carrito-icon-container {
+        font-size: 0; /* Oculta texto si lo hubiera, aunque ya lo quitamos en HTML */
+        margin-left: 15px; /* Ajuste si hay otros iconos */
+    }
+    .main-header .header-icons .carrito-icon-container i {
+        font-size: 1.5rem; /* Asegura un tamaño decente para el icono */
+    }
+    .carrito-contador {
+        top: -5px; /* Ajusta la posición del contador */
+        right: -8px; /* Ajusta la posición del contador */
+        padding: 1px 6px;
+        font-size: 0.7rem;
+    }
+}
+
+/* En teléfonos (max-width: 768px), si el logo y search-bar se apilan */
+@media (max-width: 768px) {
+    .main-header .header-icons {
+        order: 2; /* Mantener la posición relativa a otros elementos del header */
+        margin-left: auto; /* Para que se alinee a la derecha */
+    }
+    .main-header .header-icons .carrito-icon-container {
+        margin-left: 0; /* Eliminar margen extra */
+    }
+}
+
+</style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="language-selector">
+            <i class="fas fa-flag"></i> Español <i class="fas fa-caret-down"></i>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="Landesign.png" alt="Contigo Logo">
+        </div>
+
+        <div class="header-icons">
+             <div class="carrito-icon-container">
+                 <a href="carrito.html"> <i class="fas fa-shopping-cart"></i> <span class="carrito-contador" id="items-en-carrito">0</span> </a>
+             </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="localizacion.html">Localizador de tiendas</a></li>
+            <li><a href="sobrelaempresa.html">descubremas sobre nostros</a></li>
+        </ul>
+    </nav>
+    
+    <div class="breadcrumbs">
+        <a href="#">Inicio</a> <span>&gt;</span> <a href="#">Productos</a> <span>&gt;</span> <strong>Termos</strong>
+    </div>
+
+    <section class="product-list-header">
+        <div>
+            <h1>Termos</h1>
+            <p class="results-count">Mostrando 8 de 8 resultados</p>
+        </div>
+        <div class="sort-by">
+            <label for="sort-select">Ordenar por</label>
+            <select id="sort-select">
+                <option value="popular">Popular</option>
+                <option value="precio-asc">Precio: Menor a Mayor</option>
+                <option value="precio-desc">Precio: Mayor a Menor</option>
+                <option value="novedad">Más Novedoso</option>
+            </select>
+        </div>
+    </section>
+
+   
+
+        <main class="product-grid" id="product-grid">
+            <div class="product-card">
+                <a href="#"><img src="producto 1.png" alt="Termo Negro Contigo"></a>
+                <div class="product-info">    
+                    <a href="producto 1.html"><h4>marco personalizado</h4></a>
+                    <p class="price">MXN 240</p>
+                    <span class="numeric-price" data-price="240"></span>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="producto 2.png" alt="Termo Azul Contigo"></a>
+                <div class="product-info">
+                    <a href="producto 2.html"><h4>termo wiskero</h4></a>
+                    <p class="price">MXN 250</p>
+                    <span class="numeric-price" data-price="250"></span>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="producto 3.png" alt="Termo Rojo Contigo"></a>
+                <div class="product-info">
+                    <a href="producto 3.html"><h4>taza de acero inoxidable</h4></a>
+                    <p class="price">MXN 300</p>
+                    <span class="numeric-price" data-price="300"></span>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="producto 4.png" alt="Termo Verde Contigo"></a>
+                <div class="product-info">
+                    <a href="producto 4.html"><h4>sandalias sublimables</h4></a>
+                    <p class="price">MXN 40</p> 
+                    <span class="numeric-price" data-price="40"></span>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="producto 5.png" alt="Termo Amarillo Contigo"></a>
+                <div class="product-info">
+                    <a href="producto 5.html"><h4>Playera sublimada adulto como niño </h4></a>
+                    <p class="price">MXN 180 adulto MXN 160 niño </p>
+                    <span class="numeric-price" data-price="160"></span> 
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="producto 7.png" alt="Termo Violeta Contigo"></a>
+                <div class="product-info">
+                    <a href="producto 6.html"><h4>Termo regue</h4></a>
+                    <p class="price">MXN 31.50</p>
+                    <span class="numeric-price" data-price="31.50"></span>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="producto 8.png" alt="Termo Lavanda Contigo"></a>
+                <div class="product-info">
+                    <a href="producto 7.html"><h4>marco personalizado</h4></a>
+                    <p class="price">MXN 28.99</p>
+                    <span class="numeric-price" data-price="28.99"></span>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#"><img src="producto 9.png" alt="Termo Celeste Contigo"></a>
+                <div class="product-info">
+                    <a href="producto 9.html"><h4>Agenda Personalizada de varios colores</h4></a>
+                    <p class="price">MXN 30.00</p>
+                    <span class="numeric-price" data-price="30.00"></span>
+                </div>
+            </div>
+        </main>
+    </div>    
+    
+    <script>
+    // 1. Obtener los elementos clave del DOM
+    const sortSelect = document.getElementById('sort-select');
+    const productGrid = document.getElementById('product-grid');
+    
+    // 2. Obtener la lista de todos los productos (tarjetas)
+    const productCards = Array.from(productGrid.querySelectorAll('.product-card'));
+    
+    // Almacenar el orden original de las tarjetas
+    const originalOrder = [...productCards];
+
+    // Función principal de ordenamiento
+    function sortProducts(sortType) {
+        let sortedCards = [...productCards]; // Crear una copia para ordenar
+
+        if (sortType === 'precio-asc') {
+            // Ordenar por precio: Menor a Mayor
+            sortedCards.sort((a, b) => {
+                // Obtenemos el precio numérico del atributo data-price
+                const priceA = parseFloat(a.querySelector('.numeric-price').dataset.price);
+                const priceB = parseFloat(b.querySelector('.numeric-price').dataset.price);
+                return priceA - priceB;
+            });
+        } else if (sortType === 'precio-desc') {
+            // Ordenar por precio: Mayor a Menor
+            sortedCards.sort((a, b) => {
+                const priceA = parseFloat(a.querySelector('.numeric-price').dataset.price);
+                const priceB = parseFloat(b.querySelector('.numeric-price').dataset.price);
+                return priceB - priceA; // Invertimos el orden para Mayor a Menor
+            });
+        } else {
+            // Para "Popular" o "Novedad", restaurar el orden original
+            sortedCards = originalOrder;
+        }
+
+        // 3. Reinsertar los productos en el orden ordenado en el DOM
+        // Esto elimina los elementos del DOM y los vuelve a añadir en el nuevo orden.
+        // Se recomienda vaciar el contenedor y rellenar si se usa solo con elementos de la lista.
+        // Pero para simplificar, usaremos el método appendChild, que reubica los elementos.
+        
+        // Primero, eliminar todos los elementos actuales del contenedor
+        while (productGrid.firstChild) {
+            productGrid.removeChild(productGrid.firstChild);
+        }
+
+        // Luego, reinsertar en el nuevo orden
+        sortedCards.forEach(card => {
+            productGrid.appendChild(card);
+        });
+    }
+
+    // 4. Añadir el evento que se dispara cuando el usuario cambia la opción del selector
+    sortSelect.addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+        sortProducts(selectedValue);
+    });
+
+    // Iniciar el script ejecutando el ordenamiento inicial (útil si la opción por defecto no es el orden HTML)
+    // sortProducts(sortSelect.value); // Descomentar si quieres aplicar el orden por defecto al cargar
+
+</script>
+
+</body>
+</html>

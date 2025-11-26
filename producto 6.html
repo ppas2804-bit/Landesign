@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto | Portaretratos Personalizado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+
+<style>
+    /*  1. VARIABLES Y BASE CSS */
+    :root {
+        --primary-blue: #007bff; 
+        --secondary-color: #28a745;
+        --background-light: #f4f4f4;
+        --text-dark: #212529;
+        --border-color: #dee2e6;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background-color: var(--background-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--primary-blue);
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    /* NUEVOS ESTILOS DEL ENCABEZADO Y LOGO */
+    .main-header-producto {
+        background: white; 
+        color: #333; 
+        padding: 10px 0; 
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        margin-bottom: 30px; 
+    }
+
+    .header-contenido {
+        display: flex; 
+        justify-content: flex-start; 
+        align-items: center; 
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 20px; 
+    }
+
+    .logo-contenedor {
+        display: flex; 
+    }
+
+    .logo-pequeño {
+        width: 60px;
+        height: auto; 
+        object-fit: contain; 
+    }
+
+    .contenedor-principal {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    /*  2. SECCIÓN DETALLE DE PRODUCTO */
+    .producto-detalle {
+        display: flex;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        gap: 50px;
+    }
+
+    
+    .producto-imagen-contenedor {
+        flex: 1; 
+        max-width: 50%;
+        position: sticky; 
+        top: 20px;
+    }
+
+    .producto-imagen-contenedor img {
+        width: 100%;
+        max-height: 550px;
+        object-fit: contain;
+        display: block;
+        border-radius: 8px;
+        background-color: #fff; 
+    }
+
+    .producto-info {
+        flex: 1; 
+        max-width: 50%;
+        text-align: left;
+    }
+
+    .nombre-producto {
+        font-size: 2.5em;
+        margin: 0 0 10px 0;
+        color: var(--text-dark);
+    }
+
+    .reseñas {
+        color: gold;
+        margin-bottom: 20px;
+        font-size: 0.9em;
+    }
+
+    .reseñas span {
+        color: var(--text-dark);
+        font-weight: 600;
+        margin-left: 5px;
+    }
+
+    .descripcion {
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .descripcion p {
+        font-size: 1.05em;
+        color: #555;
+    }
+
+    .opciones-compra {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .opciones-compra h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+        color: var(--text-dark);
+    }
+
+    .selector-grupo {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .selector-capacidad {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .precio-actual {
+        font-size: 2.5em;
+        color: var(--primary-blue);
+        font-weight: 700;
+        margin: 0 0 15px 0;
+    }
+
+    .boton-comprar {
+        background-color: var(--primary-blue);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.1s;
+        width: 100%;
+        display: block;
+    }
+
+    .boton-comprar:hover {
+        background-color: #0056b3;
+    }
+    
+    /*  4. CARACTERÍSTICAS & RELACIONADOS*/
+    .caracteristicas-listado {
+        margin-top: 30px;
+        background-color: #fcfcfc;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+
+    .caracteristicas-listado h3 {
+        color: var(--primary-blue);
+        margin-top: 0;
+        border-bottom: 2px solid var(--primary-blue);
+        padding-bottom: 10px;
+    }
+
+    .caracteristicas-listado ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .caracteristicas-listado li {
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+    
+    .caracteristicas-listado li i {
+        margin-right: 10px;
+        color: var(--secondary-color); 
+    }
+
+    /*5. FOOTER Y RESPONSIVE*/
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: var(--text-dark);
+        color: #ddd;
+        margin-top: 40px;
+        font-size: 0.9em;
+    }
+
+    @media (max-width: 992px) {
+        .producto-detalle {
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+        .producto-imagen-contenedor, .producto-info {
+            max-width: 100%;
+        }
+        .producto-imagen-contenedor {
+            position: static;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .selector-grupo {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .input-cantidad {
+             width: 100%;
+        }
+        .header-contenido {
+            justify-content: center; 
+            padding-left: 0;
+        }
+    }
+
+    .input-cantidad {
+        padding: 10px 15px; 
+        border: 1px solid #ccc; 
+        border-radius: 6px; 
+        font-size: 16px;
+        width: 100px; 
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+        text-align: center;
+    }
+    .selector-capacidad label[for="cantidad_producto"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+/* --- ESTILOS PARA EL ICONO DEL CARRITO CON CONTADOR (Posición Derecha) --- */
+
+.carrito-icon-container {    
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem; 
+    color: var(--text-dark); 
+    transition: color 0.2s;
+    position: relative; 
+    margin-left: 0; 
+}
+
+.carrito-icon-container:hover {
+    color: #818486; 
+}
+
+.carrito-icon-container i {
+    font-size: 1.8rem; 
+    margin-right: 0; 
+}
+
+.carrito-contador {
+    background-color: #dc3545; 
+    color: white;
+    border-radius: 50%; 
+    padding: 2px 7px; 
+    font-size: 0.75rem; 
+    font-weight: bold;
+    position: absolute; 
+    top: -8px; 
+    right: -10px;
+    min-width: 20px; 
+    text-align: center;
+    line-height: 1.2; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* --- RESPONSIVIDAD (Ajustes para móvil/tablet) --- */
+@media (max-width: 992px) {
+
+    .main-header .header-icons .carrito-icon-container {
+        font-size: 0; 
+        margin-left: 15px; 
+    }
+    .main-header .header-icons .carrito-icon-container i {
+        font-size: 1.5rem;
+    }
+    .carrito-contador {
+        top: -5px; 
+        right: -8px; 
+        padding: 1px 6px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .header-icons {
+        order: 2; 
+        margin-left: auto; 
+    }
+    .main-header .header-icons .carrito-icon-container {
+        margin-left: 0;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<header class="main-header-producto">
+    <div class="header-contenido">
+        <a href="index.html" class="logo-contenedor">
+            <img src="landesign.png" alt="LANDESIGN" class="logo-pequeño">
+        </a>
+        <a href="carrito.html" class="carrito-icon-container">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="items-en-carrito" class="carrito-contador">0</span> 
+        </a>
+    </div>
+</header>
+
+<div class="contenedor-principal">
+    
+    <section class="producto-detalle">
+        
+        <div class="producto-imagen-contenedor">
+            <img src="producto 7.png" alt="Portaretratos personalizado de 8x10">
+        </div>
+
+        <div class="producto-info">
+            
+            <p class="categoria">otros productos</p>
+            <h2 class="nombre-producto">Termo regue</h2>
+            
+            <div class="reseñas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span>(159 reseñas)</span>
+            </div>
+            
+            <p class="precio-actual">MXN 220.00</p>
+
+            <div class="opciones-compra">
+                
+                <div class="selector-grupo">
+                    <div class="selector-capacidad">
+                        <h4>cantidad</h4>
+                        <div>
+                            <label for="cantidad_producto">cantidad</label>
+                            <input 
+                                type="number" 
+                                id="cantidad_producto" 
+                                name="cantidad_producto" 
+                                value="1" 
+                                min="1" 
+                                max="10"
+                                class="input-cantidad"
+                                >
+                        </div>
+                    </div>
+
+                    <button class="boton-comprar" id="btn-agregar-carrito"><i class="fas fa-cart-plus"></i> Añadir al Carrito</button>
+                </div>
+                
+                <div class="descripcion">
+                    <h3>Acerca de este producto:</h3>
+                    <p>este termo tiene un diseño bastante llamativo y sus colores variados.</p>
+                </div>
+                
+                <div class="caracteristicas-listado">
+                    <h3>Características Clave:</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> esta hecho de plastico duro y bastante resistente.</li>
+                        <li><i class="fas fa-check-circle"></i> tiene un diseño bastante colorido.</li>
+                        <li><i class="fas fa-check-circle"></i> su extructura esta hecha para un agarre como sin molestar la manos.</li>
+                        <li><i class="fas fa-check-circle"></i> es un existente regalo para ese amigo que le gusta llamar la actencion.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+</div> 
+
+
+<script> 
+    document.addEventListener('DOMContentLoaded', function() {
+
+    const botonAgregar = document.getElementById('btn-agregar-carrito');
+    const contadorCarritoElemento = document.getElementById('items-en-carrito');
+    const inputCantidad = document.getElementById('cantidad_producto');
+
+    // 1. Inicializar el Carrito y Contador al cargar la página
+    function inicializarCarrito() {
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        actualizarContadorGlobal(carrito);
+    }
+
+    // 2. Función para calcular y actualizar el contador visible
+    function actualizarContadorGlobal(carrito) {
+        const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+        if (contadorCarritoElemento) {
+            contadorCarritoElemento.textContent = totalItems;
+        }
+    }
+
+    // 3. Función principal para Añadir un Producto al Carrito
+    function agregarAlCarrito() {
+        
+        // **VALORES ACTUALIZADOS DEL PRODUCTO**
+        const productoInfo = {
+            id: 'prod-marco-001', 
+            nombre: 'Portaretratos personalizado de 8x10', // Nombre corregido
+            precio: 240.00, 
+            imagen: 'producto 1.png'
+        };
+
+        const cantidadAAgregar = parseInt(inputCantidad ? inputCantidad.value : 1, 10);
+
+        if (cantidadAAgregar <= 0 || isNaN(cantidadAAgregar)) {
+            alert('Por favor, ingresa una cantidad válida (mayor a cero).');
+            return; 
+        }
+
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        const indiceExistente = carrito.findIndex(item => item.id === productoInfo.id);
+
+        if (indiceExistente !== -1) {
+            carrito[indiceExistente].cantidad += cantidadAAgregar;
+        } else {
+            carrito.push({
+                ...productoInfo, 
+                cantidad: cantidadAAgregar
+            });
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+        // F. Feedback visual al usuario
+        actualizarContadorGlobal(carrito);
+        mostrarFeedbackBoton(botonAgregar, cantidadAAgregar);
+    }
+    
+    // Función para cambiar el texto del botón temporalmente
+    function mostrarFeedbackBoton(boton, cantidad) {
+        const textoOriginal = boton.innerHTML;
+        boton.innerHTML = `<i class="fas fa-check-circle"></i> Añadidos ${cantidad}`;
+        boton.disabled = true;
+
+        setTimeout(() => {
+            boton.innerHTML = textoOriginal;
+            boton.disabled = false;
+        }, 1500);
+    }
+
+    // 4. Asignar el evento al botón
+    if (botonAgregar) {
+        botonAgregar.addEventListener('click', agregarAlCarrito);
+    }
+
+    // 5. Ejecutar inicialización
+    inicializarCarrito();
+});
+</script>
+
+</body>
+</html>
